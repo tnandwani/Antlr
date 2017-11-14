@@ -10,14 +10,15 @@
 		78067AE21CF3B3BA00B65D22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78067AE01CF3B3BA00B65D22 /* Main.storyboard */; };
 		786F13261D19ED4400DA077F /* MyScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786F13251D19ED4400DA077F /* MyScoreViewController.swift */; };
 		78A2F42B1D13671A0055F17C /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A2F42A1D13671A0055F17C /* Score.swift */; };
+		78A373BE1D21D9A800A640F3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A373BD1D21D9A800A640F3 /* SettingsViewController.swift */; };
 		78AC601F1CF78018003890A4 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC601E1CF78018003890A4 /* UserInfoViewController.swift */; };
-		78B684D51D1F1069004A6701 /* Antlr-5e8120fdc5b7.json in Resources */ = {isa = PBXBuildFile; fileRef = 78B684D41D1F1069004A6701 /* Antlr-5e8120fdc5b7.json */; };
+		78B684D51D1F1069004A6701 /* ServiceAccount.json in Resources */ = {isa = PBXBuildFile; fileRef = 78B684D41D1F1069004A6701 /* ServiceAccount.json */; };
 		78C120141D0CC23D00C89838 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78C120131D0CC23D00C89838 /* GoogleService-Info.plist */; };
 		78C14A451CFA0D6700FBA602 /* FeedTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C14A441CFA0D6700FBA602 /* FeedTabViewController.swift */; };
 		78D415C01CF8F86700E8F36C /* UserTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D415BF1CF8F86700E8F36C /* UserTabViewController.swift */; };
 		78DC82EC1CEE2E36009ED352 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DC82EB1CEE2E36009ED352 /* CreateViewController.swift */; };
 		78EFCF0F1CED2B9B0058E1E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EFCF0E1CED2B9B0058E1E4 /* AppDelegate.swift */; };
-		78EFCF111CED2B9B0058E1E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EFCF101CED2B9B0058E1E4 /* ViewController.swift */; };
+		78EFCF111CED2B9B0058E1E4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EFCF101CED2B9B0058E1E4 /* MainViewController.swift */; };
 		78EFCF161CED2B9B0058E1E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78EFCF151CED2B9B0058E1E4 /* Assets.xcassets */; };
 		78EFCF191CED2B9B0058E1E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78EFCF171CED2B9B0058E1E4 /* LaunchScreen.storyboard */; };
 		78EFCF231CED3D020058E1E4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EFCF221CED3D020058E1E4 /* SignInViewController.swift */; };
@@ -28,10 +29,12 @@
 		56EEDCB6F93E1CF695B2C9D3 /* Pods-Antlr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antlr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Antlr/Pods-Antlr.release.xcconfig"; sourceTree = "<group>"; };
 		6C78472C9A0E3DF4F000479B /* Pods_Antlr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Antlr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78067AE11CF3B3BA00B65D22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		784E1BB61D399C6200563B6A /* Antlr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Antlr-Bridging-Header.h"; sourceTree = "<group>"; };
 		786F13251D19ED4400DA077F /* MyScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScoreViewController.swift; sourceTree = "<group>"; };
 		78A2F42A1D13671A0055F17C /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		78A373BD1D21D9A800A640F3 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		78AC601E1CF78018003890A4 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
-		78B684D41D1F1069004A6701 /* Antlr-5e8120fdc5b7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Antlr-5e8120fdc5b7.json"; sourceTree = "<group>"; };
+		78B684D41D1F1069004A6701 /* ServiceAccount.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ServiceAccount.json; sourceTree = "<group>"; };
 		78C120131D0CC23D00C89838 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		78C14A441CFA0D6700FBA602 /* FeedTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTabViewController.swift; sourceTree = "<group>"; };
 		78D415BF1CF8F86700E8F36C /* UserTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTabViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +42,7 @@
 		78DC82F51CEE3F6B009ED352 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78EFCF0B1CED2B9A0058E1E4 /* Antlr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antlr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78EFCF0E1CED2B9B0058E1E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		78EFCF101CED2B9B0058E1E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		78EFCF101CED2B9B0058E1E4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		78EFCF151CED2B9B0058E1E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78EFCF181CED2B9B0058E1E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78EFCF221CED3D020058E1E4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -69,9 +72,10 @@
 		78318C711D00FE0A0090A4B8 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				78B684D41D1F1069004A6701 /* Antlr-5e8120fdc5b7.json */,
-				78C120131D0CC23D00C89838 /* GoogleService-Info.plist */,
+				784E1BB61D399C6200563B6A /* Antlr-Bridging-Header.h */,
 				78EFCF171CED2B9B0058E1E4 /* LaunchScreen.storyboard */,
+				78B684D41D1F1069004A6701 /* ServiceAccount.json */,
+				78C120131D0CC23D00C89838 /* GoogleService-Info.plist */,
 				78EFCF0E1CED2B9B0058E1E4 /* AppDelegate.swift */,
 				78EFCF151CED2B9B0058E1E4 /* Assets.xcassets */,
 				78DC82F51CEE3F6B009ED352 /* Info.plist */,
@@ -102,8 +106,9 @@
 			children = (
 				78318C711D00FE0A0090A4B8 /* Support */,
 				78067AE01CF3B3BA00B65D22 /* Main.storyboard */,
+				78A373BD1D21D9A800A640F3 /* SettingsViewController.swift */,
 				786F13251D19ED4400DA077F /* MyScoreViewController.swift */,
-				78EFCF101CED2B9B0058E1E4 /* ViewController.swift */,
+				78EFCF101CED2B9B0058E1E4 /* MainViewController.swift */,
 				78EFCF221CED3D020058E1E4 /* SignInViewController.swift */,
 				78C14A441CFA0D6700FBA602 /* FeedTabViewController.swift */,
 				78D415BF1CF8F86700E8F36C /* UserTabViewController.swift */,
@@ -137,7 +142,7 @@
 				A5309A192F79A6DE1098C2CE /* [CP] Embed Pods Frameworks */,
 				3F6B392840E0748004C8703A /* [CP] Copy Pods Resources */,
 				78E8E5DD1D1F15E5009D969C /* ShellScript */,
-				781F0BD61D1F20A10045F234 /* ShellScript */,
+				781F0BD61D1F20A10045F234 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -161,6 +166,7 @@
 					78EFCF0A1CED2B9A0058E1E4 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = U9S74NJA8U;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -191,7 +197,7 @@
 				78067AE21CF3B3BA00B65D22 /* Main.storyboard in Resources */,
 				78C120141D0CC23D00C89838 /* GoogleService-Info.plist in Resources */,
 				78EFCF161CED2B9B0058E1E4 /* Assets.xcassets in Resources */,
-				78B684D51D1F1069004A6701 /* Antlr-5e8120fdc5b7.json in Resources */,
+				78B684D51D1F1069004A6701 /* ServiceAccount.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,13 +234,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		781F0BD61D1F20A10045F234 /* ShellScript */ = {
+		781F0BD61D1F20A10045F234 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,7 +259,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Replace this path with the path to the key you just downloaded\nJSON_FILE= Users/Tushar/Documents/DevKit/Antlr/Antlr/Antlr-5e8120fdc5b7.json\n# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID= 1:983439576906:ios:9d8cc4b3bb6ae07b\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym";
+			shellScript = "# Replace this path with the path to the key you just downloaded\nJSON_FILE= ServiceAccount.json\n# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID= 1:983439576906:ios:9d8cc4b3bb6ae07b\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym";
 		};
 		A5309A192F79A6DE1098C2CE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -279,8 +286,9 @@
 				78DC82EC1CEE2E36009ED352 /* CreateViewController.swift in Sources */,
 				78D415C01CF8F86700E8F36C /* UserTabViewController.swift in Sources */,
 				78A2F42B1D13671A0055F17C /* Score.swift in Sources */,
+				78A373BE1D21D9A800A640F3 /* SettingsViewController.swift in Sources */,
 				78C14A451CFA0D6700FBA602 /* FeedTabViewController.swift in Sources */,
-				78EFCF111CED2B9B0058E1E4 /* ViewController.swift in Sources */,
+				78EFCF111CED2B9B0058E1E4 /* MainViewController.swift in Sources */,
 				78AC601F1CF78018003890A4 /* UserInfoViewController.swift in Sources */,
 				78EFCF0F1CED2B9B0058E1E4 /* AppDelegate.swift in Sources */,
 				78EFCF231CED3D020058E1E4 /* SignInViewController.swift in Sources */,
@@ -313,7 +321,7 @@
 		78EFCF1B1CED2B9B0058E1E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -362,7 +370,7 @@
 		78EFCF1C1CED2B9B0058E1E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -407,10 +415,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 887D7AD1F8FF19BCBCA35B52 /* Pods-Antlr.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = U9S74NJA8U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -419,13 +429,15 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Antlr/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.antlr.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Antlr/Antlr-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -433,10 +445,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 56EEDCB6F93E1CF695B2C9D3 /* Pods-Antlr.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = U9S74NJA8U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -445,13 +459,15 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Antlr/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.antlr.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Antlr/Antlr-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

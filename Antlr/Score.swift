@@ -12,71 +12,67 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class Score{
-    
 
     let ref = FIRDatabase.database().reference()
-    
-
     var newSkipped, newScore, newCount: Int?
+    var currentUser: String?
+    var updatedSpam = 1
     
-    struct finalValues {
-      static var currentUser: String?
-    }
+    var photoPath: String?
+    var everyonePath: String?
+    
     
     func updateData(){
-        print("about to update for user....")
-        print(finalValues.currentUser)
-        ref.child("users").child(finalValues.currentUser!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+        ref.child("users").child(currentUser!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            print("updating old values now")
-            let updatedScore = snapshot.value!["score"] as? Double
-            let updatedCount = snapshot.value!["count"] as? Double
-            let updatedSkipped = snapshot.value!["skipped"] as? Double
-            print("updated score is...")
-            print(updatedScore)
+            let updatedScore = snapshot.value! as? Double
+            let updatedCount = snapshot.value! as? Double
+            let updatedSkipped = snapshot.value!  as? Double
+            let incomingSpam = snapshot.value! as? Int
+            
+            self.saveSpam(incomingSpam!)
+     
             self.validate(updatedScore, oldCount: updatedCount, oldSkipped: updatedSkipped)
 
         }) { (error) in
             print("done goofed")
             print(error.localizedDescription)
         }
-        
-        print("finished updating for current user")
+
     } // end of update
     
-    func saveNewData (incomingScore: Int?, incomingCount: Int?, incomingSkipped: Int?){
-        print("saving new data...")
-        print(incomingScore)
-        print(incomingCount)
-        print(incomingSkipped)
-        
+    func saveUser(_ user: String){
+        currentUser = user
+    }
+    func saveSpam(_ oldSpam: Int){
+        updatedSpam = oldSpam
+    }
+    
+    func saveNewData (_ incomingScore: Int?, incomingCount: Int?, incomingSkipped: Int?, user: String, everyPath: String, specificPath: String){
+        everyonePath = everyPath
+        photoPath = specificPath
+        currentUser = user
         newScore = incomingScore!
         newCount = incomingCount!
         newSkipped = incomingSkipped!
-        print("finshed saving new data")
+        savePaths(everyPath, specificPath: specificPath)
+        saveUser(user)
         updateData()
+        
     }
     
-    func validate(oldScore: Double?, oldCount: Double?, oldSkipped: Double?){
-        print("old is...")
-        print(oldScore)
-        print("new is...")
-        print(newScore)
+    func savePaths(_ everyPath: String, specificPath: String){
+        everyonePath = everyPath
+        photoPath = specificPath
         
+    }
+
+    func validate(_ oldScore: Double?, oldCount: Double?, oldSkipped: Double?){
         var finalSkipped, finalScore, finalCount: Double?
         
         let countPlus = oldCount! + 1
-
-        
-        
-        print("about to validate")
-        
         // if not skipped
         if newSkipped! == 0 {
-            print("was not skipped")
-            print("old score is... \(oldScore!)")
-            
-            
             // if not valid
             if (oldCount! > 5 && abs(Double(newScore!) - oldScore!) > 3){
                 print("not a valid rating ")
@@ -116,7 +112,6 @@ class Score{
         
         // if skipped
         if newSkipped! == 1{
-            print("skipped")
             finalCount = oldCount!
             finalScore = oldScore!
             finalSkipped = oldSkipped! + 1 
@@ -125,22 +120,43 @@ class Score{
 
         // set final skipped
         finalSkipped = oldSkipped! + Double(newSkipped!)
-        
-        print("final score is.. \(finalScore!)")
-        print("final count is.. \(finalCount!)")
-        print("final skipped is.. \(finalSkipped!)")
-        
+//        print("final score is.. \(finalScore!)")
+//        print("final count is.. \(finalCount!)")
+//        print("final skipped is.. \(finalSkipped!)")
+//        
         uploadData(finalScore!, newCount: finalCount, newSkipped: finalSkipped)
-        print("sent upload method")
 
         
     }// end of validate
   
-    func uploadData(newScore: Double?, newCount: Double?, newSkipped: Double?){
-        print("about to upload new data to cloud")
-        self.ref.child("users/\(finalValues.currentUser!)/count").setValue(newCount!)
-        self.ref.child("users/\(finalValues.currentUser!)/score").setValue(newScore!)
-        self.ref.child("users/\(finalValues.currentUser!)/skipped").setValue(newSkipped!)
-        print("finished uploading data to cloud")
+    func uploadData(_ newScore: Double?, newCount: Double?, newSkipped: Double?){
+
+        ref.child("users/\(currentUser!)/count").setValue(newCount!)
+        ref.child("users/\(currentUser!)/score").setValue(newScore!)
+        ref.child("users/\(currentUser!)/skipped").setValue(newSkipped!)
+        ref.child("users/\(currentUser!)/skipped").setValue(newSkipped!)
+        
+        updatePhotoData(newScore!, finalCount: newCount!)
+        print("SCORE UPDATE COMPLETE FOR ....\(currentUser)")
+        
+    }
+    
+    func updatePhotoData(_ finalScore: Double, finalCount: Double){
+    
+        // specify photo tree
+        ref.child("\(photoPath!)/\(currentUser!)/count").setValue(finalCount)
+        ref.child("\(photoPath!)/\(currentUser!)/score").setValue(finalScore)
+
+        // FOR EVERYONE
+        ref.child("\(everyonePath!)/\(currentUser!)/count").setValue(finalCount)
+        ref.child("\(everyonePath!)/\(currentUser!)/score").setValue(finalScore)
+        
+    }
+    
+    
+    func spam(_ user: String){
+        updatedSpam += 1
+        ref.child("users/\(user)/spamClicked").setValue(updatedSpam)
+        
     }
 }

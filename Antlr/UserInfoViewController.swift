@@ -24,7 +24,7 @@ class UserInfoViewController: UIViewController {
     }
     
     // Gender
-    @IBAction func genderButton(sender: UIButton) {
+    @IBAction func genderButton(_ sender: UIButton) {
         let choice: String = (sender.titleLabel?.text)!
         print(choice)
         AntlrUser.gender  = choice
@@ -34,7 +34,7 @@ class UserInfoViewController: UIViewController {
     }
     
     // want rating?
-    @IBAction func wantRating(sender: UIButton) {
+    @IBAction func wantRating(_ sender: UIButton) {
         let choice: String = (sender.titleLabel?.text)!
         print(choice)
         AntlrUser.wantRate = choice
@@ -43,7 +43,7 @@ class UserInfoViewController: UIViewController {
     }
     
     // want to rate?
-    @IBAction func toRate(sender: UIButton) {
+    @IBAction func toRate(_ sender: UIButton) {
         var choice: String = (sender.titleLabel?.text)!
         
         
@@ -63,7 +63,7 @@ class UserInfoViewController: UIViewController {
     }
     
     // group choice
-    @IBAction func group(sender: UIButton) {
+    @IBAction func group(_ sender: UIButton) {
         let choice: String = (sender.titleLabel?.text)!
         print(choice)
         AntlrUser.group = choice
@@ -80,19 +80,26 @@ class UserInfoViewController: UIViewController {
         self.ref.child("users/\(AntlrUser.uid!)/spamClicked").setValue(0)
         
         
-        // photo tree
-        self.ref.child("photos/\(AntlrUser.wantRate!)/\(AntlrUser.gender!)/\(AntlrUser.group!)/\(AntlrUser.uid!)/uid").setValue(AntlrUser.uid!)
+        // specify photo tree
+    self.ref.child("photos/\(AntlrUser.wantRate!)/\(AntlrUser.gender!)/\(AntlrUser.group!)/uid/").child("\(AntlrUser.uid!)/uid").setValue(AntlrUser.uid!)
+    self.ref.child("photos/\(AntlrUser.wantRate!)/\(AntlrUser.gender!)/\(AntlrUser.group!)/uid/\(AntlrUser.uid!)/count").setValue(1)
+    self.ref.child("photos/\(AntlrUser.wantRate!)/\(AntlrUser.gender!)/\(AntlrUser.group!)/uid/\(AntlrUser.uid!)/score").setValue(10)
+        
 
         
         
         // FOR EVERYONE
 
-        self.ref.child("photos/\(AntlrUser.wantRate!)/\(AntlrUser.toRate!)/\(AntlrUser.group!)/\(AntlrUser.uid!)/uid").setValue(AntlrUser.uid!)
+    self.ref.child("photos/\(AntlrUser.wantRate!)/\(AntlrUser.toRate!)/\(AntlrUser.group!)/uid/").child("\(AntlrUser.uid!)/uid").setValue(AntlrUser.uid!)
+    self.ref.child("photos/\(AntlrUser.wantRate!)/\(AntlrUser.toRate!)/\(AntlrUser.group!)/uid/\(AntlrUser.uid!)/count").setValue(1)
+    self.ref.child("photos/\(AntlrUser.wantRate!)/\(AntlrUser.toRate!)/\(AntlrUser.group!)/uid/\(AntlrUser.uid!)/score").setValue(10)
+        
+        
 
         
         
             //done with setup
-            self.performSegueWithIdentifier("userDone", sender: nil)
+            self.performSegue(withIdentifier: "userDone", sender: nil)
         
     }
 
@@ -100,7 +107,7 @@ class UserInfoViewController: UIViewController {
         super.viewDidLoad()
             self.ref = FIRDatabase.database().reference()
 
-            FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+            FIRAuth.auth()?.addStateDidChangeListener { auth, user in
                 if let user = user {
                     self.uid = user.uid
                     print("signed in as \(self.uid)")

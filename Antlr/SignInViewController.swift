@@ -35,7 +35,7 @@ class SignInViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func loginButton(sender: UIButton) {
+    @IBAction func loginButton(_ sender: UIButton) {
         passwordBox.resignFirstResponder()
         loading.startAnimating()
         if ( emailBox!.text! !=  ""){
@@ -46,7 +46,7 @@ class SignInViewController: UIViewController{
                 print("about to login")
               
                 
-                FIRAuth.auth()?.signInWithEmail(email, password: password) { (user, error) in
+                FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
                     // ...
                     if let error = error {
                         self.errorMessage.text = error.localizedDescription
@@ -62,7 +62,7 @@ class SignInViewController: UIViewController{
                         print("signed in")
                         self.uid = (user?.uid)!
                         print((self.uid)!)
-                        self.performSegueWithIdentifier("oldLogin", sender: nil)
+                        self.performSegue(withIdentifier: "oldLogin", sender: nil)
                     }
                 } // END OF AUTH
             }

@@ -1,0 +1,4 @@
+Device ID	Device Name
+f4b06f381814c064b2c3fe315b9bb3bed1e6ad28	Brandon Wilson  - iPhone 6s
+d5aaf7020aecde0bfe15063f56b2aca91386eb66	Sabrina May - iPhone 6
+a8c1feca40888b484edc70cbaa24585de8fc7257	Bianca  - iPhone 6

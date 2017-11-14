@@ -11,6 +11,8 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
+import Crashlytics
+import Fabric
 
 class UserTabViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
@@ -22,7 +24,6 @@ class UserTabViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     // variable initializers
-
     
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var imageView: UIImageView!
@@ -37,11 +38,11 @@ class UserTabViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         loading.startAnimating()
         imagePicker.delegate =  self
-        storageRef = FIRStorage.storage().referenceForURL("gs://project-4762449512525788408.appspot.com")
+        storageRef = FIRStorage.storage().reference(forURL: "gs://project-4762449512525788408.appspot.com")
         
     } // end of ViewDidLoad
     
-    func oldPhoto (path: String) {
+    func oldPhoto (_ path: String) {
         print("about to load oldPhoto")
 
         //Create a reference to the file you want to download
@@ -50,10 +51,10 @@ class UserTabViewController: UIViewController, UIImagePickerControllerDelegate, 
         let imageRef = storageRef.child("\(path).jpeg")
         print(path)
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        imageRef.dataWithMaxSize(5 * 1024 * 1024) { (data, error) -> Void in
+        imageRef.data(withMaxSize: 5 * 1024 * 1024) { (data, error) -> Void in
             if (error != nil) {
                 print("no profile image here")
-                self.changePhoto(1)
+                self.changePhoto(1 as AnyObject)
                 self.loading.stopAnimating()
                 // Uh-oh, an error occurred!
             } else {
@@ -68,22 +69,23 @@ class UserTabViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     } // end of old photo
     
-    @IBAction func changePhoto(sender: AnyObject) {
+    @IBAction func changePhoto(_ sender: AnyObject) {
         print("about to add new photo")
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
         
-        presentViewController(imagePicker, animated: true, completion: nil)
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
     } // insert image end
     
     // MARK: - UIImagePickerControllerDelegate Methods
     
     
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("finished picking")
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageView.contentMode = .ScaleAspectFill
+            imageView.contentMode = .scaleAspectFill
             print("changing the image")
          
             imageView.image = pickedImage
@@ -92,7 +94,7 @@ class UserTabViewController: UIViewController, UIImagePickerControllerDelegate, 
             // Data in memory
             if imageData != nil {
                 print("got an image to save")
-                let data: NSData = imageData!
+                let data: Data = imageData!
                 
                 // Create a reference to the file you want to upload
                 
@@ -100,18 +102,18 @@ class UserTabViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 print("step 7")
                 let userID = FIRAuth.auth()?.currentUser?.uid
-                ref.child("users").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
                     // Get user value
                     print("step 8")
                     
-                    UserInfoViewController.AntlrUser.uid = snapshot.value!["uid"] as? String
-                    UserInfoViewController.AntlrUser.gender = snapshot.value!["gender"] as? String
-                    UserInfoViewController.AntlrUser.wantRate = snapshot.value!["wantRate"] as? String
-                    UserInfoViewController.AntlrUser.group = snapshot.value!["group"] as? String
+                    UserInfoViewController.AntlrUser.uid = snapshot.value! as? String
+                    UserInfoViewController.AntlrUser.gender = snapshot.value! as? String
+                    UserInfoViewController.AntlrUser.wantRate = snapshot.value! as? String
+                    UserInfoViewController.AntlrUser.group = snapshot.value! as? String
                     print("finished fetching data")
                     
-                    let path = "\(UserInfoViewController.AntlrUser.wantRate!)/\(UserInfoViewController.AntlrUser.gender!)/\(UserInfoViewController.AntlrUser.group!)/"
-                    let path2 = "\(UserInfoViewController.AntlrUser.wantRate!)/EVERYONE/\(UserInfoViewController.AntlrUser.group!)/"
+                    let path = "\(UserInfoViewController.AntlrUser.wantRate!)/\(UserInfoViewController.AntlrUser.gender!)/\(UserInfoViewController.AntlrUser.group!)/uid/"
+                    let path2 = "\(UserInfoViewController.AntlrUser.wantRate!)/EVERYONE/\(UserInfoViewController.AntlrUser.group!)/uid/"
                     
                     
                     
@@ -127,7 +129,7 @@ class UserTabViewController: UIViewController, UIImagePickerControllerDelegate, 
                     
                     
                     // Upload the file to the path "images/rivers.jpg"
-                    _ = imageRef.putData(data, metadata: nil) { metadata, error in
+                    _ = imageRef.put(data, metadata: nil) { metadata, error in
                         if (error != nil) {
                             print("done goofed")
                             
@@ -135,7 +137,7 @@ class UserTabViewController: UIViewController, UIImagePickerControllerDelegate, 
                         } else {
                             print("upload complete")
                             // Upload the file to the path "images/rivers.jpg"
-                            _ = everyoneRef.putData(data, metadata: nil) { metadata, error in
+                            let uploadTask = everyoneRef.put(data, metadata: nil) { metadata, error in
                                 if (error != nil) {
                                     print("done goofed 2 ")
                                     
@@ -146,43 +148,46 @@ class UserTabViewController: UIViewController, UIImagePickerControllerDelegate, 
                                     // Metadata contains file metadata such as size, content-type, and download URL.
                                     _ = metadata!.downloadURL
                                 }
+                                
                             } // end of location
+                            
+                            self.progressReport(uploadTask)
+                            
                             
                             // Metadata contains file metadata such as size, content-type, and download URL.
                             _ = metadata!.downloadURL
                         }
                     } // end of location
-      
-                    // ...
+
                 }) { (error) in
                     print("found the error")
                     print(error.localizedDescription)
                 }
+                
             } // end of upload
             
-            
-            
-            
+        
+
         } // end of picked image
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     } // end of dismiss
     
     func updateData(){
         print("about to update")
         let userID = FIRAuth.auth()?.currentUser?.uid
         print("is this it?")
-        ref.child("users").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             print("updating now")
-            let updatedGender = snapshot.value!["gender"] as? String
-            let updatedGroup = snapshot.value!["group"] as? String
-            let updatedUid = snapshot.value!["uid"] as? String
-            let updatedWantRate = snapshot.value!["wantRate"] as? String
+            let updatedGender = snapshot.value! as? String
+            let updatedGroup = snapshot.value! as? String
+            let updatedUid = snapshot.value!  as? String
+            let updatedWantRate = snapshot.value! as? String
 
             
             self.createPath(updatedUid, gender: updatedGender, group: updatedGroup, wantRate: updatedWantRate)
@@ -194,11 +199,11 @@ class UserTabViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     } // end of update
     
-    func createPath(uid: String? , gender: String?, group: String?, wantRate: String?) {
+    func createPath(_ uid: String? , gender: String?, group: String?, wantRate: String?) {
         
         print("about tot make path")
       
-        let path = "\(wantRate!)/\(gender!)/\(group!)/\(uid!)"
+        let path = "\(wantRate!)/\(gender!)/\(group!)/uid/\(uid!)"
         print("this is the path...")
         print(path)
         
@@ -206,10 +211,20 @@ class UserTabViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     } // end of createPath
     
-    @IBAction func signOut(sender: UIBarButtonItem) {
-        try! FIRAuth.auth()!.signOut()
-        performSegueWithIdentifier("signOut", sender: nil)
+    func progressReport(_ progress: FIRStorageUploadTask){
+        
+        
     }
+    
+    @IBAction func signOut(_ sender: UIBarButtonItem) {
+        try! FIRAuth.auth()!.signOut()
+        print("sign out")
+        self.performSegue(withIdentifier: "signOut", sender: nil)
+        
+    }
+
+    
+
     
     
     

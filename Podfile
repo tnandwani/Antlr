@@ -16,5 +16,7 @@ pod ‘Firebase/Database’
 pod ‘Firebase/Crash’
 pod 'Fabric'
 pod 'Crashlytics'
+pod 'TwitterKit'
+pod 'TwitterCore'
 
 end

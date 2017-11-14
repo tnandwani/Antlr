@@ -1,0 +1,179 @@
+{
+  "photos" : {
+    "YES" : {
+      "EVERYONE" : {
+        "COLLEGE" : {
+          "uid" : {
+            "F5d9xan3jranpwzUaC61nKlZJz53" : {
+              "count" : 17,
+              "score" : 7.705882352941177,
+              "uid" : "F5d9xan3jranpwzUaC61nKlZJz53"
+            },
+            "dgwKjAZ6EtUYG7xZbK32kGPto6V2" : {
+              "count" : 1,
+              "score" : 10,
+              "uid" : "dgwKjAZ6EtUYG7xZbK32kGPto6V2"
+            },
+            "lB6a3IT3M0ZXkrbTthSBuvRUhCy2" : {
+              "count" : 12,
+              "score" : 8.5,
+              "uid" : "lB6a3IT3M0ZXkrbTthSBuvRUhCy2"
+            },
+            "yZoSNejK1eXQNUJUBgyPWHG5fcf1" : {
+              "count" : 44,
+              "score" : 8.909090909090914,
+              "uid" : "yZoSNejK1eXQNUJUBgyPWHG5fcf1"
+            }
+          }
+        }
+      },
+      "GIRL" : {
+        "COLLEGE" : {
+          "uid" : {
+            "BjVXMWBjyySs33VkuXDG0CX1vdn1" : {
+              "count" : 1,
+              "score" : 10,
+              "uid" : "BjVXMWBjyySs33VkuXDG0CX1vdn1"
+            },
+            "OhnxkPoOz1WKaOKhigs6fDcxUnA3" : {
+              "count" : 1,
+              "score" : 10,
+              "uid" : "OhnxkPoOz1WKaOKhigs6fDcxUnA3"
+            },
+            "aMFjncGgGZQFsjkWai0ESrxyfpI2" : {
+              "count" : 1,
+              "score" : 10,
+              "uid" : "aMFjncGgGZQFsjkWai0ESrxyfpI2"
+            },
+            "dgwKjAZ6EtUYG7xZbK32kGPto6V2" : {
+              "count" : 1,
+              "score" : 10,
+              "uid" : "dgwKjAZ6EtUYG7xZbK32kGPto6V2"
+            },
+            "lB6a3IT3M0ZXkrbTthSBuvRUhCy2" : {
+              "count" : 1,
+              "score" : 10,
+              "uid" : "lB6a3IT3M0ZXkrbTthSBuvRUhCy2"
+            },
+            "yZoSNejK1eXQNUJUBgyPWHG5fcf1" : {
+              "count" : 1,
+              "score" : 10,
+              "uid" : "yZoSNejK1eXQNUJUBgyPWHG5fcf1"
+            }
+          }
+        }
+      },
+      "GUY" : {
+        "COLLEGE" : {
+          "uid" : {
+            "F5d9xan3jranpwzUaC61nKlZJz53" : {
+              "count" : 1,
+              "score" : 10,
+              "uid" : "F5d9xan3jranpwzUaC61nKlZJz53"
+            },
+            "lB6a3IT3M0ZXkrbTthSBuvRUhCy2" : {
+              "count" : 1,
+              "score" : 10,
+              "uid" : "lB6a3IT3M0ZXkrbTthSBuvRUhCy2"
+            },
+            "qIDOKUvUW3fcRXhEbgkHLxMTJG82" : {
+              "count" : 1,
+              "score" : 10,
+              "uid" : "qIDOKUvUW3fcRXhEbgkHLxMTJG82"
+            }
+          }
+        }
+      }
+    }
+  },
+  "users" : {
+    "BjVXMWBjyySs33VkuXDG0CX1vdn1" : {
+      "count" : 1,
+      "gender" : "GIRL",
+      "group" : "COLLEGE",
+      "score" : 10,
+      "skipped" : 0,
+      "spamClicked" : 0,
+      "toRate" : "EVERYONE",
+      "uid" : "BjVXMWBjyySs33VkuXDG0CX1vdn1",
+      "wantRate" : "YES"
+    },
+    "F5d9xan3jranpwzUaC61nKlZJz53" : {
+      "count" : 17,
+      "gender" : "GUY",
+      "group" : "COLLEGE",
+      "score" : 7.705882352941177,
+      "skipped" : 8,
+      "spamClicked" : 0,
+      "toRate" : "EVERYONE",
+      "uid" : "F5d9xan3jranpwzUaC61nKlZJz53",
+      "wantRate" : "YES"
+    },
+    "OhnxkPoOz1WKaOKhigs6fDcxUnA3" : {
+      "count" : 1,
+      "gender" : "GIRL",
+      "group" : "COLLEGE",
+      "score" : 10,
+      "skipped" : 0,
+      "spamClicked" : 0,
+      "toRate" : "EVERYONE",
+      "uid" : "OhnxkPoOz1WKaOKhigs6fDcxUnA3",
+      "wantRate" : "YES"
+    },
+    "aMFjncGgGZQFsjkWai0ESrxyfpI2" : {
+      "count" : 2,
+      "gender" : "GIRL",
+      "group" : "COLLEGE",
+      "score" : 9.5,
+      "skipped" : 0,
+      "spamClicked" : 0,
+      "toRate" : "EVERYONE",
+      "uid" : "aMFjncGgGZQFsjkWai0ESrxyfpI2",
+      "wantRate" : "YES"
+    },
+    "dgwKjAZ6EtUYG7xZbK32kGPto6V2" : {
+      "count" : 7,
+      "gender" : "GIRL",
+      "group" : "COLLEGE",
+      "score" : 9.571428571428571,
+      "skipped" : 17,
+      "spamClicked" : 0,
+      "toRate" : "EVERYONE",
+      "uid" : "dgwKjAZ6EtUYG7xZbK32kGPto6V2",
+      "wantRate" : "YES"
+    },
+    "lB6a3IT3M0ZXkrbTthSBuvRUhCy2" : {
+      "count" : 12,
+      "gender" : "GIRL",
+      "group" : "COLLEGE",
+      "score" : 8.5,
+      "skipped" : 27,
+      "spamClicked" : 0,
+      "toRate" : "EVERYONE",
+      "uid" : "lB6a3IT3M0ZXkrbTthSBuvRUhCy2",
+      "wantRate" : "YES"
+    },
+    "qIDOKUvUW3fcRXhEbgkHLxMTJG82" : {
+      "count" : 1,
+      "gender" : "GUY",
+      "group" : "COLLEGE",
+      "score" : 10,
+      "skipped" : 0,
+      "spamClicked" : 0,
+      "toRate" : "EVERYONE",
+      "uid" : "qIDOKUvUW3fcRXhEbgkHLxMTJG82",
+      "wantRate" : "YES"
+    },
+    "yZoSNejK1eXQNUJUBgyPWHG5fcf1" : {
+      "count" : 44,
+      "gender" : "GIRL",
+      "group" : "COLLEGE",
+      "score" : 8.909090909090914,
+      "skipped" : 68,
+      "spamClicked" : 0,
+      "toRate" : "EVERYONE",
+      "uid" : "yZoSNejK1eXQNUJUBgyPWHG5fcf1",
+      "wantRate" : "YES"
+    }
+  }
+}

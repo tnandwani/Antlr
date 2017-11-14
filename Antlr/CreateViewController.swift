@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
+
 class CreateViewController: UIViewController {
 
     @IBOutlet weak var errorMessage: UILabel!
@@ -18,16 +19,15 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var checkBox: UITextField!
     var uid: String?
 
-  
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func createButton(sender: UIButton) {
+    @IBAction func createButton(_ sender: UIButton) {
         print(emailBox!.text!)
-        if ( emailBox!.text! !=  "" && (emailBox.text?.containsString("@"))!){
+        if ( emailBox!.text! !=  "" && (emailBox.text?.contains("@"))!){
             let email = emailBox!.text!
             print(email)
             if ( passwordBox!.text! != ""){
@@ -41,17 +41,15 @@ class CreateViewController: UIViewController {
                         if password.characters.count >= 6 {
                             print(password.characters.count)
                             //start of login
-                            FIRAuth.auth()?.createUserWithEmail(email, password: password) { (user, error) in
+                            FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
                                 if let error = error {
                                     self.errorMessage.text! =  error.localizedDescription
-                                    return
                                 }
                                 print(email)
                                 print(password)
                                 print("USER CREATED")
                                 self.uid = user?.uid
-                                print((self.uid)!)
-                                self.performSegueWithIdentifier("startOptions", sender: nil)
+                                self.performSegue(withIdentifier: "startOptions", sender: nil)
                                 // ...
                                 
                                 // end of login

@@ -25,10 +25,10 @@ class MyScoreViewController: UIViewController {
         print("made it")
         
         let userID = FIRAuth.auth()?.currentUser?.uid
-        ref.child("users").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             print("made it inside")
-            let score = snapshot.value!["score"] as? Double
+            let score = snapshot.value! as? Double
             
             self.scoreLabel.text! = String(Double(round(10 * score!)/10))
         }) { (error) in
