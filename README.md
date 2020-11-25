@@ -2,4 +2,4 @@
 
 A Social Rating App
 
-(Coming Soon.... Maybe)
+(Coming Soon.... Maybe{probably not})
